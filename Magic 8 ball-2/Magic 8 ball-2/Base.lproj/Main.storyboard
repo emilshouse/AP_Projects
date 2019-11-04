@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Magic_8_ball_2" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ask Me Anything..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xip-T7-o0t">
+                                <rect key="frame" x="81" y="108" width="252" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="FD6-sf-9Wn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ball3" translatesAutoresizingMaskIntoConstraints="NO" id="cDE-pf-OzG">
+                                <rect key="frame" x="27" y="190" width="360" height="360"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kjx-uf-eeI">
+                                <rect key="frame" x="175" y="639" width="65" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="6hC-Ah-KWc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <state key="normal" title="Ask">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="askButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LCt-bH-FLc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="xip-T7-o0t" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Acs-tw-sqA"/>
+                            <constraint firstItem="Kjx-uf-eeI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="175" id="ENe-Ln-J1K"/>
+                            <constraint firstItem="xip-T7-o0t" firstAttribute="centerX" secondItem="cDE-pf-OzG" secondAttribute="centerX" id="Pv1-RA-D07"/>
+                            <constraint firstItem="xip-T7-o0t" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="Rjd-Kb-Yu8"/>
+                            <constraint firstItem="Kjx-uf-eeI" firstAttribute="top" secondItem="cDE-pf-OzG" secondAttribute="bottom" constant="89" id="SeS-Lz-wZF"/>
+                            <constraint firstItem="cDE-pf-OzG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="27" id="Tfp-B7-wit"/>
+                            <constraint firstItem="cDE-pf-OzG" firstAttribute="centerX" secondItem="Kjx-uf-eeI" secondAttribute="centerX" id="dL5-q4-e6I"/>
+                            <constraint firstItem="cDE-pf-OzG" firstAttribute="top" secondItem="xip-T7-o0t" secondAttribute="bottom" constant="47" id="n4G-Em-diN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Kjx-uf-eeI" secondAttribute="bottom" constant="172" id="xhO-na-Xut"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="eightBallImageView" destination="cDE-pf-OzG" id="XQv-7x-nXr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ball3" width="305" height="273.5"/>
+    </resources>
+</document>
