@@ -11,8 +11,9 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet var questionLabel: UILabel!
-    @IBOutlet var trueButton: UIButton!
-    @IBOutlet var falseButton: UIButton!
+    @IBOutlet var answer1Button: UIButton!
+    @IBOutlet var answer2Button: UIButton!
+    @IBOutlet var answer3Button: UIButton!
     @IBOutlet var progressBar: UIProgressView!
     @IBOutlet var score: UILabel!
     
@@ -36,16 +37,23 @@ class ViewController: UIViewController {
 //        }
         sender.backgroundColor = userGotitright ? .green : .red
 
-        quizBrain.nextQuestion()
+        Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
 
-            Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
+        quizBrain.nextQuestion()
 
     }
 
     @objc func updateUI() {
         questionLabel.text = quizBrain.getQuestionText()
-        trueButton.backgroundColor = .clear
-        falseButton.backgroundColor = .clear
+        answer1Button.setTitle(quizBrain.getPossibleAnswers()[0], for: .normal)
+        answer2Button.setTitle(quizBrain.getPossibleAnswers()[1], for: .normal)
+        answer3Button.setTitle(quizBrain.getPossibleAnswers()[2], for: .normal)
+
+        answer1Button.backgroundColor = .clear
+        answer2Button.backgroundColor = .clear
+        answer3Button.backgroundColor = .clear
+        
+
         progressBar.progress = quizBrain.getProgress()
         score.text = quizBrain.getScore()
     }
