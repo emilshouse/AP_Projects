@@ -8,7 +8,17 @@
 
 import Foundation
 
-struct StoryBrian {
+struct StoryBrain {
+
+    var storyNumber: Int = 0
+
+//    let stories = [
+//
+//           Story(title: "You see a fork in the road.", choice1: "Take a left.", choice2: "Take a right."),
+//           Story(title: "You see a tigeer.", choice1: "Shout for help", choice2: "Play dead."),
+//           Story(title: "You find a treasure chest.", choice1: "Open it.", choice2: "Check for traps.")
+//
+//       ]
 
     let stories: [Story] = [
         Story(
@@ -41,9 +51,17 @@ struct StoryBrian {
             choice1: "The", choice1Destination: 0,
             choice2: "End", choice2Destination: 0
         )
-
-
     ]
+
+    mutating func nextStory(userChoice: String) {
+
+        if userChoice == stories[storyNumber].choice1 {
+            storyNumber = stories[storyNumber].choice1Destination
+        } else if userChoice == stories[storyNumber].choice2 {
+            storyNumber = stories[storyNumber].choice2Destination
+        }
+
+    }
 }
 
 
