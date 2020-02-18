@@ -32,6 +32,7 @@
 		AD91C85E23FB26B900A5FA74 /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
 		ADAC598923FBA4810031B24E /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		ADAC598B23FBA86A0031B24E /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		ADAC598D23FBAAC80031B24E /* H4XOR.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = H4XOR.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +65,7 @@
 		AD91C84623FB1A6900A5FA74 /* H4XOR */ = {
 			isa = PBXGroup;
 			children = (
+				ADAC598D23FBAAC80031B24E /* H4XOR.entitlements */,
 				ADAC598623FBA4340031B24E /* Views */,
 				AD91C85B23FB24D400A5FA74 /* Model */,
 				AD91C84723FB1A6900A5FA74 /* AppDelegate.swift */,
@@ -316,7 +318,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = H4XOR/H4XOR.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"H4XOR/Preview Content\"";
 				DEVELOPMENT_TEAM = DNT3ZRB35C;
 				ENABLE_PREVIEWS = YES;
@@ -327,6 +331,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.emilshouse.H4XOR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -336,7 +341,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = H4XOR/H4XOR.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"H4XOR/Preview Content\"";
 				DEVELOPMENT_TEAM = DNT3ZRB35C;
 				ENABLE_PREVIEWS = YES;
@@ -347,6 +354,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.emilshouse.H4XOR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
