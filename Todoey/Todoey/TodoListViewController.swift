@@ -16,13 +16,9 @@ class TodoListViewController: UITableViewController {
         "Destroy Demogorgon"
     ]
 
+    let defaults = UserDefaults.standard
 
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-
-    }
 
     //MARK:- TableView Datasource Methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -65,6 +61,7 @@ class TodoListViewController: UITableViewController {
         let action = UIAlertAction(title: "Add item", style: .default, handler: { (action) in
             if let text = textField.text {
             self.itemArray.append(text)
+                self.saveItems()
             }
             self.tableView.reloadData()
         })
@@ -73,6 +70,23 @@ class TodoListViewController: UITableViewController {
         present(ac, animated: true)
 
     }
+    //MARK:- User default methods
+    func loadItems() -> [String] {
+           guard let savedItems = defaults.array(forKey: "TodoListArray") as? [String] else { return ["No items"] }
+
+           return savedItems
+
+       }
+
+       func saveItems() {
+           defaults.set(itemArray, forKey: "TodoListArray")
+       }
+
+       override func viewDidLoad() {
+           super.viewDidLoad()
+           itemArray = loadItems()
+
+       }
     
 
 
