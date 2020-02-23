@@ -10,13 +10,18 @@ import UIKit
 
 class TodoListViewController: UITableViewController {
 
-    var itemArray = [
-        "Find Mike",
-        "Buy Eggos",
-        "Destroy Demogorgon"
-    ]
+    var itemArray = [Item]()
 
     let defaults = UserDefaults.standard
+
+
+    override func viewDidLoad() {
+            super.viewDidLoad()
+         //   let newItem = Item(title: "Find Mike")
+
+            itemArray = loadItems()
+
+        }
 
 
 
@@ -27,7 +32,7 @@ class TodoListViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TodoItemCell", for: indexPath)
-        cell.textLabel?.text = itemArray[indexPath.row]
+        cell.textLabel?.text = itemArray[indexPath.row].title
         return cell
     }
 
@@ -60,7 +65,7 @@ class TodoListViewController: UITableViewController {
         }
         let action = UIAlertAction(title: "Add item", style: .default, handler: { (action) in
             if let text = textField.text {
-            self.itemArray.append(text)
+                self.itemArray.append(Item(title: text))
                 self.saveItems()
             }
             self.tableView.reloadData()
@@ -71,8 +76,8 @@ class TodoListViewController: UITableViewController {
 
     }
     //MARK:- User default methods
-    func loadItems() -> [String] {
-           guard let savedItems = defaults.array(forKey: "TodoListArray") as? [String] else { return ["No items"] }
+    func loadItems() -> [Item] {
+           guard let savedItems = defaults.array(forKey: "TodoListArray") as? [Item] else { return [Item(title: "No Item")] }
 
            return savedItems
 
@@ -80,13 +85,10 @@ class TodoListViewController: UITableViewController {
 
        func saveItems() {
            defaults.set(itemArray, forKey: "TodoListArray")
+        
        }
 
-       override func viewDidLoad() {
-           super.viewDidLoad()
-           itemArray = loadItems()
 
-       }
     
 
 
