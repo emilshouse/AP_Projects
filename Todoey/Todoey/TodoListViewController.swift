@@ -23,7 +23,7 @@ class TodoListViewController: UITableViewController {
 //        let newItem = Item(context: self.context)
 //        itemArray.append(newItem)
 
- //       loadItems()
+        loadItems()
 
     }
 
@@ -48,7 +48,10 @@ class TodoListViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true) //Remove the cell highlight.
 
-        itemArray[indexPath.row].done = !itemArray[indexPath.row].done
+        context.delete(itemArray[indexPath.row])
+        itemArray.remove(at: indexPath.row)
+        
+    //   itemArray[indexPath.row].done = !itemArray[indexPath.row].done
         saveItems()
 
 
@@ -79,17 +82,14 @@ class TodoListViewController: UITableViewController {
 
     }
     //MARK:- User default methods
-//    func loadItems() {
-//        if let data = try? Data(contentsOf: dataFilePath!) {
-//            let decoder = PropertyListDecoder()
-//            do {
-//                itemArray = try decoder.decode([Item].self, from: data)
-//            } catch {
-//                print("Error decoding item array, \(error)")
-//            }
-//
-//        }
- //   }
+    func loadItems() {
+        let request: NSFetchRequest<Item> = Item.fetchRequest()
+        do {
+        itemArray = try context.fetch(request)
+        } catch {
+            print("Error fetching data from context \(error)")
+        }
+    }
 
     func saveItems() {
 
