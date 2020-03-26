@@ -1,16 +1,18 @@
 //
-//  Data.swift
+//  Category.swift
 //  Todoey
 //
-//  Created by Admin on 3/24/20.
+//  Created by Admin on 3/25/20.
 //  Copyright © 2020 App Brewery. All rights reserved.
 //
 
 import Foundation
 import RealmSwift
 
-class Data: Object {
+class Category: Object {
+    
     @objc dynamic var name: String = ""
-    @objc dynamic var age: Int = 0
+    let items  = List<Item>()
+    
     
 }
