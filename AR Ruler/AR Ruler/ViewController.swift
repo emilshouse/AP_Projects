@@ -24,6 +24,8 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         sceneView.delegate = self
         
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints]
+        
+        sceneView.autoenablesDefaultLighting = true
       
     }
     
@@ -50,9 +52,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
             for dot in dotNodes {
                 dot.removeFromParentNode()
             }
+            dotNodes = []
         }
         
-        dotNodes = []
         
         guard let touchLocation = touches.first?.location(in: sceneView) else { return }
         
@@ -75,6 +77,9 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         dotNode.position = SCNVector3(hitResult.worldTransform.columns.3.x, hitResult.worldTransform.columns.3.y, hitResult.worldTransform.columns.3.z)
         
+        
+        sceneView.scene.rootNode.addChildNode(dotNode)
+        
         dotNodes.append(dotNode)
         
         if dotNodes.count >= 2 {
@@ -93,7 +98,7 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         
         let distance = sqrt(pow(a, 2) + pow(b, 2) + pow(c, 2))
         
-        updateText(text: String(abs(distance)), atPosition: end.position)
+        updateText(text: String(distance), atPosition: end.position)
     }
     
     func updateText(text: String, atPosition position: SCNVector3) {
